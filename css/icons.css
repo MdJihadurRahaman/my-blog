@@ -1,0 +1,119 @@
+/* ========================================
+   SVG Icons Styling
+   ======================================== */
+
+/* Base Icon Styles */
+.category-icon svg,
+.category-icon-large svg,
+.topic-card-icon svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Category Icon Sizes */
+.category-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.category-icon-large svg {
+    width: 80px;
+    height: 80px;
+}
+
+.topic-card-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+/* Icon Colors */
+.philosophy-icon svg {
+    stroke: var(--accent-philosophy);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+.politics-icon svg {
+    stroke: var(--accent-politics);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+.economics-icon svg {
+    stroke: var(--accent-economics);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+.ethics-icon svg {
+    stroke: var(--accent-ethics);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+/* Icon Hover Effects */
+.category-box:hover .category-icon svg {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.topic-card:hover .topic-card-icon svg {
+    transform: rotate(5deg) scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Icon Animation on Load */
+.category-icon svg,
+.category-icon-large svg {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Stop animation on hover */
+.category-box:hover .category-icon svg,
+.topic-card:hover .topic-card-icon svg {
+    animation: none;
+}
+
+/* Responsive Icon Sizes */
+@media (max-width: 768px) {
+    .category-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .category-icon-large svg {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .topic-card-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .category-icon-large svg {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .topic-card-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+}

@@ -1,0 +1,478 @@
+/* ========================================
+   Category Pages Specific Styles
+   ======================================== */
+
+/* Category Hero Section */
+.category-hero {
+    padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.category-hero.philosophy-hero {
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.1) 0%, rgba(155, 89, 182, 0.05) 100%);
+    border-bottom: 4px solid var(--accent-philosophy);
+}
+
+.category-hero.politics-hero {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.05) 100%);
+    border-bottom: 4px solid var(--accent-politics);
+}
+
+.category-hero.economics-hero {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
+    border-bottom: 4px solid var(--accent-economics);
+}
+
+.category-hero.ethics-hero {
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.1) 0%, rgba(39, 174, 96, 0.05) 100%);
+    border-bottom: 4px solid var(--accent-ethics);
+}
+
+/* Updated for SVG Icons */
+.category-icon-large {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+    animation: fadeInScale 0.6s ease;
+}
+
+.category-icon-large svg {
+    width: 80px;
+    height: 80px;
+    stroke-width: 1.2px;
+}
+
+/* Specific colors for SVGs in Hero */
+.philosophy-hero .category-icon-large svg { color: var(--accent-philosophy); }
+.politics-hero .category-icon-large svg { color: var(--accent-politics); }
+.economics-hero .category-icon-large svg { color: var(--accent-economics); }
+.ethics-hero .category-icon-large svg { color: var(--accent-ethics); }
+
+.category-title {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+    animation: fadeInUp 0.6s ease 0.2s backwards;
+}
+
+.category-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-md) auto;
+    line-height: 1.8;
+    font-family: var(--font-secondary);
+    animation: fadeInUp 0.6s ease 0.3s backwards;
+}
+
+.category-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    animation: fadeInUp 0.6s ease 0.4s backwards;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-philosophy);
+    display: block;
+}
+
+.category-hero.politics-hero .stat-number {
+    color: var(--accent-politics);
+}
+
+.category-hero.economics-hero .stat-number {
+    color: var(--accent-economics);
+}
+
+.category-hero.ethics-hero .stat-number {
+    color: var(--accent-ethics);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-family: var(--font-secondary);
+}
+
+/* Filter & Sort Section */
+.filter-section {
+    background: var(--bg-primary);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.filter-left {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.filter-label {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.filter-select {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-select:hover {
+    border-color: var(--accent-philosophy);
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--accent-philosophy);
+    box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.1);
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    padding: 0.6rem 1.2rem 0.6rem 2.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    min-width: 250px;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-philosophy);
+    box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.1);
+}
+
+/* SVG Search Icon */
+.search-icon {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--text-secondary);
+}
+
+/* Posts List Section */
+.posts-list-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+    min-height: 60vh;
+}
+
+.posts-count {
+    font-family: var(--font-secondary);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+.posts-count strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Posts Grid */
+.category-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+}
+
+/* Enhanced Post Card */
+.category-post-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.category-post-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-philosophy);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.category-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-hover);
+    border-color: var(--accent-philosophy);
+}
+
+.category-post-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    color: var(--text-secondary);
+}
+
+.empty-state-icon {
+    display: block;
+    margin: 0 auto var(--spacing-md) auto;
+    opacity: 0.5;
+    color: var(--text-secondary);
+    width: 80px;
+    height: 80px;
+}
+
+.empty-state h3 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    font-family: var(--font-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.back-home-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--accent-philosophy);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-home-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+}
+
+.pagination-btn {
+    padding: 0.6rem 1.2rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.pagination-btn:hover {
+    background: var(--accent-philosophy);
+    color: white;
+    border-color: var(--accent-philosophy);
+}
+
+.pagination-btn.active {
+    background: var(--accent-philosophy);
+    color: white;
+    border-color: var(--accent-philosophy);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Related Topics Section */
+.related-topics {
+    background: var(--bg-secondary);
+    padding: var(--spacing-xl) 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.topic-card {
+    background: var(--bg-primary);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+.topic-card.philosophy-card:hover { border-color: var(--accent-philosophy); }
+.topic-card.politics-card:hover { border-color: var(--accent-politics); }
+.topic-card.economics-card:hover { border-color: var(--accent-economics); }
+.topic-card.ethics-card:hover { border-color: var(--accent-ethics); }
+
+/* SVG Icon in Topic Cards */
+.topic-card-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.topic-card-icon svg {
+    width: 48px;
+    height: 48px;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+/* Colorize Icons on Hover */
+.philosophy-card:hover .topic-card-icon svg { color: var(--accent-philosophy); }
+.politics-card:hover .topic-card-icon svg { color: var(--accent-politics); }
+.economics-card:hover .topic-card-icon svg { color: var(--accent-economics); }
+.ethics-card:hover .topic-card-icon svg { color: var(--accent-ethics); }
+
+.topic-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.topic-card-count {
+    font-family: var(--font-secondary);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .category-posts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-left {
+        flex-direction: column;
+    }
+    .search-input {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-title {
+        font-size: 2.2rem;
+    }
+    .category-icon-large svg {
+        width: 60px;
+        height: 60px;
+    }
+    .category-stats {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    .category-posts-grid {
+        grid-template-columns: 1fr;
+    }
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-title {
+        font-size: 1.8rem;
+    }
+    .category-description {
+        font-size: 1rem;
+    }
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    .filter-section {
+        top: 60px;
+    }
+}

@@ -1,0 +1,467 @@
+/* ========================================
+   About Page Layout - সম্পূর্ণ কোড (Dark/Light Mode Fixed + Colorful)
+   ======================================== */
+
+/* Light Mode Colors (Default) */
+:root {
+    --bg-gradient-hero: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #e0e7ff 100%);
+    --bg-gradient-content: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    --bg-secondary: rgba(255, 255, 255, 0.8);
+    --bg-primary: rgba(248, 250, 252, 0.9);
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --border-color: rgba(148, 163, 184, 0.5);
+}
+
+/* Dark Mode Colors - সম্পূর্ণ পরিবর্তন */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        --bg-gradient-content: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e293b 100%);
+        --bg-secondary: rgba(30, 41, 59, 0.8);
+        --bg-primary: rgba(51, 65, 85, 0.9);
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: rgba(71, 85, 105, 0.5);
+    }
+}
+
+[data-theme="dark"] {
+    --bg-gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    --bg-gradient-content: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e293b 100%);
+    --bg-secondary: rgba(30, 41, 59, 0.8);
+    --bg-primary: rgba(51, 65, 85, 0.9);
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --border-color: rgba(71, 85, 105, 0.5);
+}
+
+[data-theme="light"] {
+    --bg-gradient-hero: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #e0e7ff 100%);
+    --bg-gradient-content: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    --bg-secondary: rgba(255, 255, 255, 0.8);
+    --bg-primary: rgba(248, 250, 252, 0.9);
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --border-color: rgba(148, 163, 184, 0.5);
+}
+
+.about-hero {
+    background: var(--bg-gradient-hero);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    background-attachment: fixed;
+    will-change: background-position;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.about-profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-philosophy);
+    margin-bottom: var(--spacing-sm);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInScale 0.8s ease;
+    will-change: transform, filter;
+}
+
+.about-profile-img:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4);
+    filter: brightness(1.15) saturate(1.1);
+}
+
+.about-title {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.about-subtitle {
+    font-family: var(--font-secondary);
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.about-content {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-gradient-content);
+    min-height: 100vh;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.bio-section {
+    animation: fadeInUp 0.8s ease 0.6s backwards;
+    position: relative;
+    padding: var(--spacing-lg) 0;
+}
+
+.bio-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-philosophy), var(--accent-politics));
+    border-radius: 2px;
+}
+
+.bio-section h2 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: 2rem;
+}
+
+.bio-section h3 {
+    color: var(--text-primary);
+    margin: var(--spacing-md) 0 var(--spacing-sm);
+    font-size: 1.5rem;
+}
+
+.bio-section p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.feature-list {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.feature-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.about-sidebar {
+    animation: fadeInUp 0.8s ease 0.8s backwards;
+}
+
+.sidebar-card {
+    background: var(--bg-secondary);
+    padding: var(--spacing-md);
+    border-radius: 20px;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(15px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(139, 92, 246, 0.25),
+        0 0 0 1px rgba(139, 92, 246, 0.3);
+    border-color: var(--accent-philosophy);
+}
+
+.sidebar-card h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--accent-philosophy);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.contact-item:hover {
+    color: var(--accent-philosophy);
+    background: var(--bg-primary);
+    transform: translateX(5px);
+}
+
+.contact-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.5px;
+}
+
+.social-links svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover svg {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--accent-philosophy);
+    animation: bounce 0.6s ease;
+}
+
+.topics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.topic-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: default;
+}
+
+.topic-item:hover {
+    background: var(--bg-primary);
+}
+
+.topic-icon {
+    background: var(--bg-primary);
+    padding: 0.6rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+    transition: all 0.3s ease;
+}
+
+.topic-item:hover .topic-icon {
+    background: var(--bg-secondary);
+    transform: scale(1.15) rotate(2deg);
+}
+
+.topic-icon svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.philosophy-topic .topic-icon svg { color: var(--accent-philosophy); }
+.politics-topic .topic-icon svg { color: var(--accent-politics); }
+.economics-topic .topic-icon svg { color: var(--accent-economics); }
+.ethics-topic .topic-icon svg { color: var(--accent-ethics); }
+
+.topic-item h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    transition: color 0.3s ease;
+}
+
+.topic-item:hover h4 {
+    color: var(--accent-philosophy);
+}
+
+.topic-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.language-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.lang-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--bg-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    cursor: default;
+    backdrop-filter: blur(10px);
+}
+
+.lang-badge:hover {
+    border-color: var(--accent-philosophy);
+    color: var(--accent-philosophy);
+    transform: translateY(-2px);
+}
+
+.globe-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--accent-philosophy);
+}
+
+.cta-card {
+    text-align: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: var(--spacing-md);
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    background: var(--accent-philosophy);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+}
+
+.cta-btn:hover {
+    background: var(--accent-politics);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+}
+
+.quote-section {
+    background: linear-gradient(135deg, var(--accent-philosophy), var(--accent-politics));
+    color: white;
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: var(--spacing-xl) 0;
+}
+
+.quote-section::before {
+    content: '"';
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    font-size: 12rem;
+    opacity: 0.15;
+    font-family: serif;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+}
+
+.featured-quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: var(--font-primary);
+    animation: fadeInUp 1s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.featured-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-style: normal;
+    opacity: 0.95;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-sidebar {
+        margin-top: var(--spacing-md);
+    }
+    
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-hero {
+        background-attachment: scroll;
+    }
+
+    .sidebar-card, .lang-badge {
+        backdrop-filter: blur(5px);
+    }
+}

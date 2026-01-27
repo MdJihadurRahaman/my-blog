@@ -1,0 +1,250 @@
+/* ========================================
+   Enhanced Hero Profile Section
+   ======================================== */
+
+.hero-profile {
+    background: var(--bg-primary);
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-profile-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+/* Profile Image Container */
+.profile-image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.profile-image-large {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-philosophy);
+    box-shadow: 0 10px 40px var(--shadow-hover);
+    transition: all 0.3s ease;
+}
+
+.profile-image-large:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px var(--shadow-hover);
+}
+
+.profile-status {
+    display: none;
+}
+
+/* Profile Info */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.profile-name {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+    animation: fadeInRight 0.6s ease;
+}
+
+.profile-tagline {
+    font-size: 1.2rem;
+    color: var(--accent-philosophy);
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    margin: 0;
+    animation: fadeInRight 0.6s ease 0.1s backwards;
+}
+
+.profile-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 700px;
+    animation: fadeInRight 0.6s ease 0.2s backwards;
+}
+
+/* Contact Buttons */
+.profile-contact {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    animation: fadeInRight 0.6s ease 0.3s backwards;
+}
+
+.contact-button,
+.explore-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-button {
+    background: var(--accent-philosophy);
+    color: white;
+    border: 2px solid var(--accent-philosophy);
+}
+
+.contact-button:hover {
+    background: #8e44ad;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+}
+
+.explore-button {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.explore-button:hover {
+    background: var(--bg-secondary);
+    border-color: var(--accent-philosophy);
+    transform: translateY(-3px);
+}
+
+.contact-button svg,
+.explore-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Social Links */
+.profile-social {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    animation: fadeInRight 0.6s ease 0.4s backwards;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border-radius: 50%;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--accent-philosophy);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Animations */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 968px) {
+    .hero-profile-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .profile-image-container {
+        justify-content: center;
+    }
+    
+    .profile-info {
+        align-items: center;
+    }
+    
+    .profile-description {
+        text-align: center;
+    }
+    
+    .profile-contact {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .profile-social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-name {
+        font-size: 2.2rem;
+    }
+    
+    .profile-tagline {
+        font-size: 1.1rem;
+    }
+    
+    .profile-image-large {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .profile-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-profile {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .profile-name {
+        font-size: 1.8rem;
+    }
+    
+    .profile-image-large {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .profile-contact {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .contact-button,
+    .explore-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
